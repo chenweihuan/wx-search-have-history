@@ -63,6 +63,8 @@ Page({
         resData: [],
         maxSize: false
       })
+        wx.setStorageSync('searchData', sercherStorage);      
+
     } else {
       wx.hideLoading();
       utils.showModal("输入不能为空");
