@@ -1,21 +1,17 @@
 // pages/index/searchCard/searchCard.js
 const app = getApp();
-const utils = require("../../../utils/util.js");
-
-// var inputValueOut;
-
 Page({
   data: {
     sercherStorage: [],
     inputValue: "",             //搜索框输入的值  
     StorageFlag: false,         //显示搜索记录标志位
-    resData:[],//搜索结果
+    resData: [],//搜索结果
 
-    size:8,//每页返回的搜索条数
-    page:1,//加载哪一页
+    size: 8,//每页返回的搜索条数
+    page: 1,//加载哪一页
   },
   // 初始化输入记录
-  onLoad(){
+  onLoad() {
     let searchData = wx.getStorageSync("searchData");
     console.log()
     this.setData({
@@ -23,9 +19,9 @@ Page({
     })
   },
   // 聚焦显示搜索记录
-  bindFocus(){
+  bindFocus() {
     this.setData({
-      StorageFlag:true
+      StorageFlag: true
     })
   },
   //获取输入框的输入信息
@@ -51,7 +47,7 @@ Page({
 
     wx.showLoading({ title: '正在搜索' })
 
-    this.setData({ 
+    this.setData({
       inputValue: chooseItem[0],
       page: 1
     })
@@ -67,7 +63,7 @@ Page({
         resData: [],
         maxSize: false
       })
-    }else{
+    } else {
       wx.hideLoading();
       utils.showModal("输入不能为空");
       that.setData({
@@ -76,10 +72,10 @@ Page({
     }
   },
   // 清除某一条历史搜索记录
-  deteleSercherStorage(e){
+  deteleSercherStorage(e) {
     let that = this;
     let index = e.currentTarget.dataset.id;
-    let sercherStorage = this.data.sercherStorage; 
+    let sercherStorage = this.data.sercherStorage;
     sercherStorage.splice(index, 1);
     wx.setStorageSync('searchData', sercherStorage);
     that.setData({
@@ -96,7 +92,7 @@ Page({
       StorageFlag: false,
       page: 1,
       resData: [],
-      maxSize: false 
+      maxSize: false
     })
     if (this.data.inputValue.trim() != '') {
       // inputValueOut = this.data.inputValue.trim();
@@ -105,23 +101,23 @@ Page({
       let searchData = that.data.sercherStorage;
       // 如果搜索记录里面有重复的，要做删除操作
       for (let i = 0; i < searchData.length; i++) {
-        if (searchData[i] == this.data.inputValue.trim()){
-          searchData.splice(i,1);
+        if (searchData[i] == this.data.inputValue.trim()) {
+          searchData.splice(i, 1);
           break;
         }
       }
       // 如果超过8条搜索记录的话，删掉最旧的一条
-      if (searchData.length >= 8)searchData.pop();
-      
+      if (searchData.length >= 8) searchData.pop();
+
       // 添加搜索记录
       searchData.unshift(that.data.inputValue.trim())
       wx.setStorageSync('searchData', searchData);
       that.setData({
         StorageFlag: false,
         sercherStorage: searchData
-        })
+      })
     } else {
-      wx.hideLoading();      
+      wx.hideLoading();
       utils.showModal("输入不能为空");
       that.setData({
         inputValue: ""
@@ -129,37 +125,13 @@ Page({
     }
   },
   // 请求搜索结果
-  getResult(inputVal){
-    let params = {
-      search: inputVal,
-      page:this.data.page,
-      size:this.data.size
-    }
-    // 这里使用了模拟的接口，根据自己需要修改
-    utils.GET("text.com", {
-      params: params,
-      success: res => {
-        console.log(res)
-        let resData = this.data.resData;
-        resData.push(...res.data.parms.visitingCards);
-        if (res.data.parms.maxSize || res.data.parms.maxSize == 0){
-          this.setData({
-            resData: resData,
-            maxSize: res.data.parms.maxSize
-          })
-        }else{
-          this.setData({ 
-            resData: resData
-          })
-        }
+  getResult(inputVal) {
         wx.hideLoading();
-      }, fail: () => { }
-    })
   },
   // 点击加载更多
-  loadMore(){
+  loadMore() {
     this.setData({
-      page:this.data.page + 1
+      page: this.data.page + 1
     })
     this.getResult(this.data.inputValue);
   }
