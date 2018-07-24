@@ -38,7 +38,9 @@ for (let i = 0; i < searchData.length; i++) {
 ```this.triggerEvent("searchEvent",inputVal);```
 
 ##### 3、参数说明:title(setStorageSync的key)、searchEvent（在页面注册的回调函数用于发起ajax请求搜索）。
-```<history id="history"
-title="historyOne"
-bind:searchEvent="searchEvent">
-</history>```
+```
+<history id="history"
+  title="historyOne"
+  bind:searchEvent="searchEvent">
+</history>
+```
