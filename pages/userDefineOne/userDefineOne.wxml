@@ -1,0 +1,5 @@
+<!--pages/userDefineOne/userDefineOne.wxml-->
+    <history id="history"
+    title="historyOne"
+    bind:searchEvent="searchEvent">
+    </history>

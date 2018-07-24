@@ -1,7 +1,9 @@
 {
   "pages":[
+    "pages/page/page",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/userDefineOne/userDefineOne",
+    "pages/userDefineTwo/userDefineTwo"
   ],
   "window":{
     "backgroundTextStyle":"light",

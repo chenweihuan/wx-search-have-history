@@ -1,0 +1,8 @@
+<!--pages/page/page.wxml-->
+<view class='container'>
+  带搜索记录的搜索框 -- StorageSync
+  <navigator url='/pages/index/index'>不使用自定义组件</navigator>
+  <navigator url='/pages/userDefineOne/userDefineOne'>使用自定义组件测试1</navigator>
+  <navigator url='/pages/userDefineTwo/userDefineTwo'>使用自定义组件测试2</navigator>
+</view>
+
