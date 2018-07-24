@@ -36,3 +36,9 @@ for (let i = 0; i < searchData.length; i++) {
 
 ##### 2、发起搜索请求的时候，执行页面的回调函数，把用户的输入内容传出去
 ```this.triggerEvent("searchEvent",inputVal);```
+
+##### 3、参数说明:title(setStorageSync的key)、在页面注册的回调函数用于发起ajax请求搜索。
+    ```<history id="history"
+    title="historyOne"
+    bind:searchEvent="searchEvent">
+    </history>```
