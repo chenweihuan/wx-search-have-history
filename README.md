@@ -25,7 +25,7 @@ wx-search-have-history使用前提：
 ![click-search](./docs/click-search.gif)
 
 
-> PS：若想要获得上图中的效果，可参考 [test/demo](./test/demo/pages) 中的例子实现。
+> PS：若想要获得上图中的效果，可参考 [test/demo](./test/demo) 中的例子实现。
 
 ## 使用方法
 
@@ -44,7 +44,7 @@ npm install --save wx-search-have-history
   }
 }
 ```
-3. WXML 文件中引用 wx-search-have-history：调用history组件的同时，需要在调用wx-search-have-history的页面page.js绑定事件接收搜索值（bind:searchEvent="searchEvent"），且须在searchEvent函数里调用wx.hideLoding()，可参考 [test/demo](./test/demo/pages/index/index.js) 中的例子。  
+3. WXML 文件中引用 wx-search-have-history：调用history组件的同时，需要在调用wx-search-have-history的页面page.js绑定事件接收搜索值（bind:searchEvent="searchEvent"），且须在searchEvent函数里调用wx.hideLoding()，可参考 [test/demo/pages/index/index.js](./test/demo/pages/index/index.js) 中的例子。  
 
 ``` xml
 <searchHaveHistory id="history"
@@ -52,7 +52,7 @@ npm install --save wx-search-have-history
 </searchHaveHistory>
 ```
 
-**slide-view的属性介绍如下：**
+**wx-search-have-history的属性介绍如下：**
 
 | 属性名                   | 类型         | 默认值                    | 是否必须    | 说明                                        |
 |-------------------------|--------------|---------------------------|------------|---------------------------------------------|
@@ -65,6 +65,6 @@ npm install --save wx-search-have-history
 
 1. 在调用组件的时候，id必须填写且唯一。因为此id作为本地缓存的key值。
 
-2. 在调用wx-search-have-history的页面page.js需绑定事件接收搜索值（bind:searchEvent="searchEvent"），且须在searchEvent函数里调用wx.hideLoding(),可参考 [test/demo](./test/demo/pages/index/index.js) 中的例子。  
+2. 在调用wx-search-have-history的页面page.js需绑定事件接收搜索值（bind:searchEvent="searchEvent"），且须在searchEvent函数里调用wx.hideLoding(),可参考 [test/demo/pages/index/index.js](./test/demo/pages/index/index.js) 中的例子。  
 
 > 这是我第一次尝试，如有不当或需改进之处，请君指出，感谢万分！！！
