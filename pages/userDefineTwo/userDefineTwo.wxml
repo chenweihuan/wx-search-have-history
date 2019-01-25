@@ -1,5 +1,0 @@
-<!--pages/userDefineTwo/userDefineTwo.wxml-->
-    <history id="history"
-    title="historyTwo"
-    bind:searchEvent="searchEvent">
-    </history>

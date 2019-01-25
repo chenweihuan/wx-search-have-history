@@ -1,0 +1,16 @@
+<view class=' wh-padding search-top'>
+  <navigator open-type='navigateBack'>返回</navigator>
+  <view class='search-container'>
+    <icon type="search" size='14' />
+    <input placeholder='{{placeholderText}}' bindinput='bindInput' bindconfirm='setSearchStorage' bindfocus="bindFocus" confirm-type="search" value='{{inputValue}}'></input>
+  </view>
+</view>
+<view class='result-container'>
+  <view class='search-history' wx:if="{{StorageFlag}}">
+      <view class='weui-flex' wx:for="{{searcherStorage}}" wx:key="index" data-id="{{index}}" catchtap='tapSearcherStorage'>
+        <text data-id="{{index}}">{{item}}</text>
+        <span class='close' data-id="{{index}}" catchtap="deteleSearcherStorage"></span>
+      </view>
+      <view wx:if='{{searcherStorage.length != 0}}' catchtap='clearSearchStorage'>清除搜索记录</view>
+  </view>
+</view>

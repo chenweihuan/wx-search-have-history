@@ -1,0 +1,22 @@
+{
+  "name": "wx-search-have-history",
+  "version": "0.0.1",
+  "description": "Wechat miniprogram search box with search record",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "miniprogram": "miniprogram_dist",
+  "author": "weiwei",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chenweihuan/searchHaveHistory.git"
+  },
+  "keywords": [
+    "wx-search","search-have-history","wx-search-have-history"
+  ],
+  "bugs": {
+    "url": "https://github.com/chenweihuan/searchHaveHistory/issues"
+  }
+}

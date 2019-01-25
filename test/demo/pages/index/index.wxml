@@ -1,0 +1,3 @@
+<searchHaveHistory id="history"
+    bind:searchEvent="searchEvent">
+</searchHaveHistory>
