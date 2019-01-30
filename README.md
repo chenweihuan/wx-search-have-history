@@ -44,12 +44,27 @@ npm install --save wx-search-have-history
   }
 }
 ```
-3. WXML 文件中引用 wx-search-have-history：调用history组件的同时，需要在调用wx-search-have-history的页面page.js绑定事件接收搜索值（bind:searchEvent="searchEvent"），且须在searchEvent函数里调用wx.hideLoding()，可参考 [test/demo/pages/index/index.js](./test/demo/pages/index/index.js) 中的例子。  
+
+3. WXML 文件中引用 wx-search-have-history
 
 ``` xml
 <searchHaveHistory id="history"
 	bind:searchEvent="searchEvent">
 </searchHaveHistory>
+```
+
+4. 调用searchHaveHistory组件的同时，需要在调用wx-search-have-history的页面page.js绑定事件接收搜索值（bind:searchEvent="searchEvent"），且须在searchEvent函数里调用wx.hideLoding()，可参考 [test/demo/pages/index/index.js](./test/demo/pages/index/index.js) 中的例子。  
+```
+Page({
+  data: {
+  },
+  searchEvent(e){
+  	console.log("用户搜索"+e.detail)
+    setTimeout(()=>{
+      wx.hideLoading();
+    },1000)
+  }
+})
 ```
 
 **wx-search-have-history的属性介绍如下：**
